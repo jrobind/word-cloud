@@ -1,0 +1,8 @@
+// Media query mixins
+$bp-sm: 62em;
+
+@mixin mq-sm {
+  @media only screen and (min-width: $bp-sm) {
+    @content;
+  }
+}

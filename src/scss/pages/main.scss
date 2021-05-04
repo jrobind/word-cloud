@@ -1,0 +1,52 @@
+@import '../core/mixins.scss';
+
+body {
+  font-family: var(--font-stack);
+  padding: var(--spacing-small);
+}
+
+.app {
+  max-width: var(--appMaxWidth);
+  margin: auto;
+}
+
+.topics-container {
+  margin-top: var(--spacing-medium);
+  align-items: center;
+
+  @include mq-sm {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .topics {
+    max-width: var(--topicsMaxWidth);
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    line-height: var(--lineHeight);
+
+    &__topic {
+      margin: 0 var(--spacing-small);
+    }
+  }
+
+  .topic-meta {
+    width: fit-content;
+    margin: var(--spacing-small);
+
+    @include mq-sm {
+      min-width: var(--topicMetaMinWidth);
+    }
+
+    &__title {
+      margin-bottom: var(--spacing-small);
+    }
+
+    &__group {
+      margin-top: var(--spacing-small);
+    }
+  }
+}
