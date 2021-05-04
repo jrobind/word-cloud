@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Word cloud</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS injected via Webpack -->
+  </head>
+  <body>
+    <main class="app">
+      <h1>My Topics Challenge</h1>
+      <div class="topics-container">
+        <ul class="topics" role="navigation" aria-label="word cloud"></ul>
+        <div class="topic-meta" hidden>
+          <h2 class="topic-meta__title">
+            Information on topic <br />
+            <span class="topic-meta__label"></span>:
+          </h2>
+          <p>Total Mentions: <span class="topic-meta__mentions"></span></p>
+
+          <div class="topic-meta__group">
+            <p>
+              Positive Mentions:
+              <span class="topic-meta__positive-mentions"></span>
+            </p>
+            <p>
+              Neutral Mentions:
+              <span class="topic-meta__neutral-mentions"></span>
+            </p>
+            <p>
+              Negative Mentions:
+              <span class="topic-meta__negative-mentions"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
