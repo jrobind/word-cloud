@@ -31,6 +31,13 @@ body {
     &__topic {
       margin: 0 var(--spacing-small);
     }
+
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
   }
 
   .topic-meta {
