@@ -1,34 +1,7 @@
 import { expect } from '@jest/globals';
 import WordCloud from '../src/WordCloud';
+import mockTopicData from '../__mocks__/topicData';
 
-import topicData from '../topics.json';
-
-jest.mock('../topics.json', () => ({
-  topics: [
-    {
-      label: 'Bread',
-      volume: 125,
-      sentimentScore: 75,
-      sentiment: {
-        negative: 3,
-        neutral: 133,
-        positive: 29,
-      },
-    },
-    {
-      label: 'Apple',
-      volume: 2,
-      sentimentScore: 15,
-      sentiment: {
-        negative: 30,
-        neutral: 0,
-        positive: 2,
-      },
-    },
-  ],
-}));
-
-const { topics } = topicData;
 let cloudInstance;
 
 describe('WordCloud', () => {
@@ -54,7 +27,7 @@ describe('WordCloud', () => {
       </main>
     `;
 
-    cloudInstance = new WordCloud(topics);
+    cloudInstance = new WordCloud(mockTopicData);
   });
 
   it('renders a word cloud list', () => {
@@ -62,17 +35,22 @@ describe('WordCloud', () => {
 
     const topicsList = document.querySelector('.topics');
     const firstTopic = topicsList.querySelectorAll('a')[0];
-    const lastTopic = topicsList.querySelectorAll('a')[1];
+    const secondTopic = topicsList.querySelectorAll('a')[1];
+    const thirdTopic = topicsList.querySelectorAll('a')[2];
 
-    expect(topicsList.childElementCount).toBe(2);
+    expect(topicsList.childElementCount).toBe(3);
 
     expect(firstTopic.textContent).toBe('Apple');
     expect(firstTopic.getAttribute('topic-label')).toBe('Apple');
     expect(firstTopic.classList.toString()).toBe('fs-1 negative');
 
-    expect(lastTopic.textContent).toBe('Bread');
-    expect(lastTopic.getAttribute('topic-label')).toBe('Bread');
-    expect(lastTopic.classList.toString()).toBe('fs-6 positive');
+    expect(secondTopic.textContent).toBe('Bread');
+    expect(secondTopic.getAttribute('topic-label')).toBe('Bread');
+    expect(secondTopic.classList.toString()).toBe('fs-6 positive');
+
+    expect(thirdTopic.textContent).toBe('Pepper');
+    expect(thirdTopic.getAttribute('topic-label')).toBe('Pepper');
+    expect(thirdTopic.classList.toString()).toBe('fs-3 neutral');
   });
 
   it('renders topic meta data when topic is clicked', () => {

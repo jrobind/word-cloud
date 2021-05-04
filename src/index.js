@@ -1,8 +1,14 @@
 import './scss/styles.scss';
 
-import topicData from '../topics.json';
+import regeneratorRuntime from 'regenerator-runtime';
+import { topicsDataURL } from './constants';
 import WordCloud from './WordCloud';
 
-const { topics } = topicData;
+async function init() {
+  const response = await fetch(topicsDataURL);
+  const { topics } = await response.json();
 
-new WordCloud(topics).renderWords();
+  new WordCloud(topics).renderWords();
+}
+
+init();
