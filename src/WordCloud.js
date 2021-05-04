@@ -91,11 +91,11 @@ export default class WordCloud {
 
   setSentimentClass(element, score) {
     if (score > 60) {
-      element.classList.add('green');
+      element.classList.add('positive');
     } else if (score < 40) {
-      return element.classList.add('red');
+      return element.classList.add('negative');
     } else {
-      element.classList.add('grey');
+      element.classList.add('neutral');
     }
 
     return element;
