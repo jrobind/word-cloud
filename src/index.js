@@ -5,7 +5,7 @@ import { topicsDataURL } from './constants';
 import WordCloud from './WordCloud';
 
 async function init() {
-  const response = await fetch(topicsDataURL);
+  const response = await fetch(topicsDataURL).catch(console.error);
   const { topics } = await response.json();
 
   new WordCloud(topics).renderWords();
