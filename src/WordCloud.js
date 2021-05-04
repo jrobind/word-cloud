@@ -31,7 +31,7 @@ export default class WordCloud {
     e.preventDefault();
     const { target } = e;
 
-    if (target.classList.contains('topics')) return;
+    if (!target.hasAttribute('topic-label')) return;
 
     const {
       volume,
